@@ -1,5 +1,5 @@
 use std::env;
-
+mod cat;
 
 fn convert_args(mut arg: Vec<String>)  -> Vec<String> {
     arg.remove(0);
@@ -22,14 +22,13 @@ fn callfunc(arg: Vec<String>) -> i32 {
     let prog_name = &arg[0];
     let arguments = &arg[1..];
     println!("{}", prog_name);
-    println!("{:?}", arguments);
 
     match prog_name.as_str() {
-        "test" => println!("Yes"),
-        "hello" => println!("No"),
-        _   => println!("No argument found suitable")
+        "cat" => cat::run(arguments.to_vec()),
+        "hello" => 10,
+        _   => 11
 
-    }
+    };
 
     return 1;
 }
