@@ -1,4 +1,5 @@
 use std::env;
+mod mv;
 mod cat;
 mod cp;
 mod rm;
@@ -30,6 +31,7 @@ fn callfunc(arg: Vec<String>) -> i32 {
         "cat" => cat::run(arguments.to_vec()),
         "rm" => rm::run(arguments.to_vec()),
         "cp" => cp::run(arguments.to_vec()),
+        "mv" => mv::run(arguments.to_vec()),
         _   => 11
 
     }
