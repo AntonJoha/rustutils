@@ -2,19 +2,13 @@ use std::fs::File;
 use std::io::BufRead;
 use std::io::BufReader;
 
-
-fn open_file(path: String) -> Result<File, String> {
-    match File::open(path) {
-        Ok(r) => Ok(r),
-        Err(e) => Err(e.to_string())
-    }
-}
+use  crate::internal;
 
 
 pub fn cat(args: Vec<String>) -> i32 {
 
     for f in args {
-        let file = match open_file(f) {
+        let file = match internal::open_file(f) {
             Ok(f) => BufReader::new(f),
             Err(e) => { println!("{}", e); return -1 }
         };
