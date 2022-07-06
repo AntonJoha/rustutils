@@ -1,6 +1,7 @@
 use std::env;
 mod cat;
 mod cp;
+mod rm;
 mod internal;
 
 fn convert_args(mut arg: Vec<String>)  -> Vec<String> {
@@ -27,11 +28,11 @@ fn callfunc(arg: Vec<String>) -> i32 {
 
     match prog_name.as_str() {
         "cat" => cat::run(arguments.to_vec()),
+        "rm" => rm::run(arguments.to_vec()),
         "cp" => cp::run(arguments.to_vec()),
         _   => 11
 
-    };
+    }
 
-    return 1;
 }
 
