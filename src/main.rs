@@ -4,6 +4,7 @@ mod cat;
 mod cp;
 mod rm;
 mod internal;
+mod cd;
 
 fn convert_args(mut arg: Vec<String>)  -> Vec<String> {
     arg.remove(0);
@@ -11,7 +12,7 @@ fn convert_args(mut arg: Vec<String>)  -> Vec<String> {
 }
 
 fn main() {
-    let mut args:  Vec<String> = env::args().collect();
+    let args:  Vec<String> = env::args().collect();
     
     #[cfg(debug_assertions)]
     let args = convert_args(args);
@@ -32,6 +33,7 @@ fn callfunc(arg: Vec<String>) -> i32 {
         "rm" => rm::run(arguments.to_vec()),
         "cp" => cp::run(arguments.to_vec()),
         "mv" => mv::run(arguments.to_vec()),
+        "cd" => cd::run(arguments.to_vec()),
         _   => 11
 
     }
