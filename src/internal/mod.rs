@@ -2,6 +2,12 @@ use std::fs::File;
 use std::env;
 use std::path::Path;
 
+
+pub fn is_dir(path: &String) -> bool {
+    let p = Path::new(path);
+    return p.is_dir();
+}
+
 pub fn current_dir() -> Result<String, String> {
     match env::current_dir() {
         Ok(f) => { match f.to_str() {
