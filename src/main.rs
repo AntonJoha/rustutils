@@ -5,6 +5,7 @@ mod cp;
 mod rm;
 mod internal;
 mod cd;
+mod mkdir;
 
 fn convert_args(mut arg: Vec<String>)  -> Vec<String> {
     arg.remove(0);
@@ -34,6 +35,7 @@ fn callfunc(arg: Vec<String>) -> i32 {
         "cp" => cp::run(arguments.to_vec()),
         "mv" => mv::run(arguments.to_vec()),
         "cd" => cd::run(arguments.to_vec()),
+        "mkdir" => mkdir::run(arguments.to_vec()),
         _   => 11
 
     }
