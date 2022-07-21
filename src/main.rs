@@ -25,6 +25,7 @@ fn main() {
 fn callfunc(arg: Vec<String>) -> i32 {
 
 
+
     let prog_name = &arg[0];
     let arguments = &arg[1..];
     println!("{}", prog_name);
