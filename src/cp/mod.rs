@@ -26,9 +26,7 @@ fn copy_file(conf: arguments::Config) -> i32 {
 
 pub fn run(mut args: Vec<String>) -> i32 {
     
-    
     let conf : arguments::Config = arguments::parse_args(args);
-
 
     if internal::is_dir(&conf.infile) {
         if conf.recursive {
